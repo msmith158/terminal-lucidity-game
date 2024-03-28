@@ -16,6 +16,8 @@ public class NewDebugCanvas : MonoBehaviour
     // Dictionary to store bools by their names
     private Dictionary<string, bool> boolDictionary = new Dictionary<string, bool>();
 
+    private List<string> debugList = new List<string>();
+
     // Example bools (you can add more)
     public bool enableFPSCounter;
     public bool hasKey;
@@ -51,7 +53,7 @@ public class NewDebugCanvas : MonoBehaviour
 
             if (kvp.Value)
             {
-                resultString += kvp.Key + " \n"; // Modify this part as needed
+                //resultString += kvp.Key + " \n"; // Modify this part as needed
             }
 
             Debug.Log("Key = " + kvp.Key + ", Value = " + kvp.Value);
