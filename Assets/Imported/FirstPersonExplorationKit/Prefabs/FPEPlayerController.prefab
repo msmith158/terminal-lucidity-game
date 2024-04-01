@@ -217,10 +217,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_WalkSpeedCrouching: 2
-  m_RunSpeedCrouching: 4
-  m_WalkSpeedStanding: 4
-  m_RunSpeedStanding: 10
+  m_WalkSpeedCrouching: 0
+  m_RunSpeedCrouching: 0
+  m_WalkSpeedStanding: 0
+  m_RunSpeedStanding: 0
   walkStepLengthCrouching: 3.5
   runStepLengthCrouching: 3
   walkStepLengthStanding: 1
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_GravityMultiplier: 2
   minimumFallSpeed: -1
   stepInterval: 5
-  cameraBobEnabled: 1
+  cameraBobEnabled: 0
   m_JumpBob:
     BobDuration: 0.2
     BobAmount: 0.1
@@ -290,7 +290,7 @@ MonoBehaviour:
   footstepSounds: {fileID: 11400000, guid: f696b89200bb75f42bd6652d04f681f0, type: 2}
   jumpSounds: {fileID: 11400000, guid: 134786474185b3548a8027c53a522e89, type: 2}
   landingSounds: {fileID: 11400000, guid: 2a10bd2498e0c724fa6035cb9fe7fded, type: 2}
-  enableMovementSounds: 1
+  enableMovementSounds: 0
   jumpEnabled: 1
   runEnabled: 1
   crouchEnabled: 1

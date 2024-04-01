@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using System;
+using System.Collections;
 
 namespace Whilefun.FPEKit
 {
@@ -89,6 +90,13 @@ namespace Whilefun.FPEKit
 
         private GameObject playerController;
 
+        [Header("Custom flags")]
+        [SerializeField] private bool flashingInteractable;
+        [SerializeField] private Material objectMaterial;
+        [SerializeField] private float flashSpeed = 1f;
+        private bool docked;
+        private float lerpStartTime;
+
 #if UNITY_EDITOR    
         [Header("Editor")]
         [SerializeField, Tooltip("If true, Gizmos will be drawn in editor to aid with layout and testing")]
@@ -120,7 +128,6 @@ namespace Whilefun.FPEKit
                 dockAudio.playOnAwake = false;
                 dockAudio.loop = false;
             }
-
         }
 
         public override void Start()
@@ -170,6 +177,21 @@ namespace Whilefun.FPEKit
 
         }
 
+        public void Update()
+        {
+            while (docked == false)
+            {
+                switch (flashingInteractable)
+                {
+                    case true:
+                        StartCoroutine(EmissiveFlashing());
+                        break;
+                    case false:
+                        break;
+                }
+            }
+        }
+
         /* public void unDock()
         {
 
@@ -217,6 +239,27 @@ namespace Whilefun.FPEKit
         public void disablePlayerCollider()
         {
             playerController.GetComponent<CharacterController>().enabled = false;
+        }
+
+        public void signalDock()
+        {
+            docked = true;
+        }
+
+        private IEnumerator EmissiveFlashing()
+        {
+            float t = 0f;
+            t += Time.deltaTime / 5.0f;
+
+            Color startColour = new Color(0, 0, 0);
+            Color endColour = new Color(0.5f, 0.5f, 0.5f);
+
+            objectMaterial.EnableKeyword("_EMISSION");
+            objectMaterial.SetColor("_EmissionColor", Color.Lerp(startColour, endColour, t));
+            yield return new WaitForSeconds(t);
+            objectMaterial.SetColor("_EmissionColor", Color.Lerp(endColour, startColour, t));
+            yield return new WaitForSeconds(t);
+            Debug.Log("Flashing");
         }
         
 #if UNITY_EDITOR
