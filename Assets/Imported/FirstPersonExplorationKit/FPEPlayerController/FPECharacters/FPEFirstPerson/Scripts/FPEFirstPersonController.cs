@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 namespace Whilefun.FPEKit {
 
@@ -141,7 +143,6 @@ namespace Whilefun.FPEKit {
 
         void Awake()
         {
-
             controller = gameObject.GetComponent<CharacterController>();
 
             standingHeight = controller.height;
@@ -184,7 +185,6 @@ namespace Whilefun.FPEKit {
             {
                 Debug.LogError("FPEFirstPersonController:: Cannot find an instance of FPEInputManager in the scene. Player movement look will not function correctly!");
             }
-
         }
 
 

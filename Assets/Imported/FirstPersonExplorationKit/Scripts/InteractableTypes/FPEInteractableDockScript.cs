@@ -90,12 +90,12 @@ namespace Whilefun.FPEKit
 
         private GameObject playerController;
 
-        [Header("Custom flags")]
+        /*[Header("Custom flags")]
         [SerializeField] private bool flashingInteractable;
         [SerializeField] private Material objectMaterial;
         [SerializeField] private float flashSpeed = 1f;
         private bool docked;
-        private float lerpStartTime;
+        private float lerpStartTime;*/
 
 #if UNITY_EDITOR    
         [Header("Editor")]
@@ -177,7 +177,7 @@ namespace Whilefun.FPEKit
 
         }
 
-        public void Update()
+        /*public void Update()
         {
             while (docked == false)
             {
@@ -190,7 +190,7 @@ namespace Whilefun.FPEKit
                         break;
                 }
             }
-        }
+        }*/
 
         /* public void unDock()
         {
@@ -241,12 +241,12 @@ namespace Whilefun.FPEKit
             playerController.GetComponent<CharacterController>().enabled = false;
         }
 
-        public void signalDock()
+        /*public void signalDock()
         {
             docked = true;
-        }
+        }*/
 
-        private IEnumerator EmissiveFlashing()
+        /*private IEnumerator EmissiveFlashing()
         {
             float t = 0f;
             t += Time.deltaTime / 5.0f;
@@ -260,7 +260,7 @@ namespace Whilefun.FPEKit
             objectMaterial.SetColor("_EmissionColor", Color.Lerp(endColour, startColour, t));
             yield return new WaitForSeconds(t);
             Debug.Log("Flashing");
-        }
+        }*/
         
 #if UNITY_EDITOR
 

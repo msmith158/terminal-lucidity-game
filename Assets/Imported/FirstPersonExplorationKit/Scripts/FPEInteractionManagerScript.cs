@@ -124,7 +124,6 @@ namespace Whilefun.FPEKit
         private FPEHUD myHUD = null;
         private FPEHUDData myHUDData = null;
 
-
 #if UNITY_EDITOR
         [Header("Debug")]
         [SerializeField, Tooltip("If true, debug gizmos will be drawn (Editor Only)")]
@@ -1523,36 +1522,34 @@ namespace Whilefun.FPEKit
         /// <param name="pickup">The Pickup object you want to toss</param>
         public void tossObject(FPEInteractablePickupScript pickup)
         {
+                GameObject go = pickup.gameObject;
+                go.transform.parent = null;
 
-            GameObject go = pickup.gameObject;
-            go.transform.parent = null;
+                Collider[] objectColliders = go.GetComponentsInChildren<Collider>();
 
-            Collider[] objectColliders = go.GetComponentsInChildren<Collider>();
+                foreach (Collider c in objectColliders)
+                {
+                    c.isTrigger = false;
+                }
 
-            foreach (Collider c in objectColliders)
-            {
-                c.isTrigger = false;
-            }
+                go.GetComponent<Rigidbody>().isKinematic = false;
+                go.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
 
-            go.GetComponent<Rigidbody>().isKinematic = false;
-            go.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.Continuous;
+                // Note: We move objects to a special toss location to prevent clipping into the player if the player tosses the object while walking forward
+                float tossStrength = go.GetComponent<FPEInteractablePickupScript>().tossStrength;
+                float tossOffsetUp = go.GetComponent<FPEInteractablePickupScript>().tossOffsetUp;
+                float tossOffsetForward = go.GetComponent<FPEInteractablePickupScript>().tossOffsetForward;
+                go.transform.position = interactionObjectTossLocation.transform.position + Vector3.up * tossOffsetUp + Camera.main.transform.forward * tossOffsetForward;
+                go.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * tossImpulseFactor * tossStrength, ForceMode.Impulse);
 
-            // Note: We move objects to a special toss location to prevent clipping into the player if the player tosses the object while walking forward
-            float tossStrength = go.GetComponent<FPEInteractablePickupScript>().tossStrength;
-            float tossOffsetUp = go.GetComponent<FPEInteractablePickupScript>().tossOffsetUp;
-            float tossOffsetForward = go.GetComponent<FPEInteractablePickupScript>().tossOffsetForward;
-            go.transform.position = interactionObjectTossLocation.transform.position + Vector3.up * tossOffsetUp + Camera.main.transform.forward * tossOffsetForward;
-            go.GetComponent<Rigidbody>().AddForce(Camera.main.transform.forward * tossImpulseFactor * tossStrength, ForceMode.Impulse);
+                Transform[] objectTransforms = go.GetComponentsInChildren<Transform>();
 
-            Transform[] objectTransforms = go.GetComponentsInChildren<Transform>();
+                foreach (Transform t in objectTransforms)
+                {
+                    t.gameObject.layer = LayerMask.NameToLayer("FPEPickupObjects");
+                }
 
-            foreach (Transform t in objectTransforms)
-            {
-                t.gameObject.layer = LayerMask.NameToLayer("FPEPickupObjects");
-            }
-
-            go.GetComponent<FPEInteractablePickupScript>().drop();
-
+                go.GetComponent<FPEInteractablePickupScript>().drop();
         }
 
 

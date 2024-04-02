@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 
@@ -75,11 +76,14 @@ namespace Whilefun.FPEKit
         private FPEGenericEvent.eRepeatMode putbackRepeatMode = FPEGenericEvent.eRepeatMode.ONETIME;
         private bool putbackEventFiredOnce = false;
 
+        private TextMeshProUGUI subtitleText;
+
         public override void Awake()
         {
 
             base.Awake();
 
+            subtitleText = GameObject.Find("SubtitleText").GetComponent<TextMeshProUGUI>();
             interactionType = eInteractionType.PICKUP;
             gameObject.layer = LayerMask.NameToLayer("FPEPickupObjects");
 
@@ -272,7 +276,7 @@ namespace Whilefun.FPEKit
         /// </summary>
         public void drop()
         {
-            pickedUp = false;
+                pickedUp = false;
         }
 
         // This function is called by FPEInteractionManager when the player starts examining an object
