@@ -280,13 +280,23 @@ namespace Whilefun.FPEKit
         }
 
         // This function is called by FPEInteractionManager when the player starts examining an object
-        public virtual void startExamination()
+        public virtual void startExaminationOverride()
         {
 
         }
 
         // This function is called by FPEInteractionManager when the player stops examining an object
-        public virtual void endExamination()
+        public virtual void endExaminationOverride()
+        {
+
+        }
+
+        public void startExamination()
+        {
+
+        }
+
+        public void endExamination()
         {
 
         }

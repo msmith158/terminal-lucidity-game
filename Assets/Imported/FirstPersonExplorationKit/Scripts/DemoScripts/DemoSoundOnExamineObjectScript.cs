@@ -65,9 +65,9 @@ public class DemoSoundOnExamineObjectScript : FPEInteractablePickupScript {
 
 	// The start/end examination functions are overidden so we can
 	// start and stop the additional "examination" sound
-	public override void startExamination(){
+	public override void startExaminationOverride(){
 
-		base.startExamination();
+		base.startExaminationOverride();
 
 		if(playSoundOnExamination && !havePlayedSoundOnce || playSoundEveryTime){
 
@@ -81,9 +81,9 @@ public class DemoSoundOnExamineObjectScript : FPEInteractablePickupScript {
 
 	}
 
-	public override void endExamination(){
+	public override void endExaminationOverride(){
 
-		base.endExamination();
+		base.endExaminationOverride();
 
 		// Only do a hard stop on looping sounds.
 		if(playSoundOnExamination && myAudioSource.isPlaying && loopExaminationSound){
