@@ -238,6 +238,8 @@ namespace Whilefun.FPEKit
 
         public void disablePlayerCollider()
         {
+            playerController = GameObject.Find("FPEPlayerController(Clone)");
+            Debug.Log(playerController);
             playerController.GetComponent<CharacterController>().enabled = false;
         }
 
