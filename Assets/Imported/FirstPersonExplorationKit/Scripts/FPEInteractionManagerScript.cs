@@ -655,6 +655,7 @@ namespace Whilefun.FPEKit
                     //hideReticleAndInteractionLabel();
                     examiningObject = true;
                     currentHeldObject.GetComponent<FPEInteractablePickupScript>().startExaminationOverride();
+                    currentHeldObject.GetComponent<FPEInteractablePickupScript>().startExamination();
                     disableMouseLook();
                     disableMovement();
 
@@ -703,6 +704,7 @@ namespace Whilefun.FPEKit
                     examiningObject = false;
                     //showReticleAndInteractionLabel();
                     currentHeldObject.GetComponent<FPEInteractablePickupScript>().endExaminationOverride();
+                    currentHeldObject.GetComponent<FPEInteractablePickupScript>().endExamination();
                     enableMouseLook();
                     enableMovement();
 

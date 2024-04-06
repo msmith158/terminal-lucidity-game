@@ -65,16 +65,30 @@ namespace Whilefun.FPEKit
         protected bool pickedUp = false;
 
         [Header("Pickup and Put Back events")]
+        // Pickup
         [SerializeField, Tooltip("If specified, this event will fire when the object is picked up")]
         private FPEGenericEvent OnPickupEvent = null;
         [SerializeField, Tooltip("If ONETIME, the event will only fire the first time object is picked up. If REPEAT, event will fire every time the object is picked up")]
         private FPEGenericEvent.eRepeatMode pickupRepeatMode = FPEGenericEvent.eRepeatMode.ONETIME;
         private bool pickupEventFiredOnce = false;
+        // Put back
         [SerializeField, Tooltip("If specified, this event will fire when the object is put back")]
         private FPEGenericEvent OnPutBackEvent = null;
         [SerializeField, Tooltip("If ONETIME, the event will only fire the first time object is put back. If REPEAT, event will fire every time the object is put back")]
         private FPEGenericEvent.eRepeatMode putbackRepeatMode = FPEGenericEvent.eRepeatMode.ONETIME;
         private bool putbackEventFiredOnce = false;
+        // Start examine
+        [SerializeField, Tooltip("If specified, this event will fire when the player starts examining the object.")]
+        private FPEGenericEvent OnExamineStartEvent = null;
+        [SerializeField, Tooltip("If ONETIME, the event will only fire the first time the player starts examining the object. If REPEAT, event will fire every time the player starts examining the object.")]
+        private FPEGenericEvent.eRepeatMode examineStartRepeatMode = FPEGenericEvent.eRepeatMode.ONETIME;
+        private bool examineStartEventFiredOnce = false;
+        // End examine
+        [SerializeField, Tooltip("If specified, this event will fire when the player stops examining the object.")]
+        private FPEGenericEvent OnExamineEndEvent = null;
+        [SerializeField, Tooltip("If ONETIME, the event will only fire the first time the player stops examining the object. If REPEAT, event will fire every time the player stops examining the object.")]
+        private FPEGenericEvent.eRepeatMode examineEndRepeatMode = FPEGenericEvent.eRepeatMode.ONETIME;
+        private bool examineEndEventFiredOnce = false;
 
         private TextMeshProUGUI subtitleText;
 
@@ -293,12 +307,30 @@ namespace Whilefun.FPEKit
 
         public void startExamination()
         {
+            if (!examineStartEventFiredOnce || examineStartRepeatMode == FPEGenericEvent.eRepeatMode.REPEAT)
+            {
+                examineStartEventFiredOnce = true;
 
+                if (OnExamineStartEvent != null)
+                {
+                    OnExamineStartEvent.Invoke();
+                }
+
+            }
         }
 
         public void endExamination()
         {
+            if (!examineEndEventFiredOnce || examineEndRepeatMode == FPEGenericEvent.eRepeatMode.REPEAT)
+            {
+                examineEndEventFiredOnce = true;
 
+                if (OnExamineEndEvent != null)
+                {
+                    OnExamineEndEvent.Invoke();
+                }
+
+            }
         }
 
         public bool isCurrentlyPickedUp()

@@ -58,7 +58,7 @@ MonoBehaviour:
   interactionLayerMask:
     serializedVersion: 2
     m_Bits: 3639
-  zoomedFOV: 50
+  zoomedFOV: 45
   cameraZoomFOVChangePerSecond: 10
   zoomedMouseSensitivityMultiplier: 0.5
   slowMouseOnInteractableObjectHighlight: 1
