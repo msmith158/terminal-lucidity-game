@@ -16,7 +16,7 @@ public class Wheelchair : MonoBehaviour
     private float moveTimeElapsed;
     private float turnTimeElapsed;
     private float turnTimeElapsed2;
-    //private bool isKeyPressed = false;
+    //public bool isMovable = true;
 
     private void Start()
     {
@@ -27,73 +27,42 @@ public class Wheelchair : MonoBehaviour
 
     void Update()
     {
-        // Forward keys
-        if (Input.GetKey(KeyCode.Q)) 
-        {
-            //isKeyPressed = true;
-            if (Input.GetKey(KeyCode.Q) && Input.GetKey(KeyCode.E))
+        //if (isMovable == true)
+        //{
+            // Forward keys
+            if (Input.GetKey(KeyCode.Q))
             {
-                // Forward
-                if (moveTimeElapsed < moveSmoothAmount)
+                if (Input.GetKey(KeyCode.Q) && Input.GetKey(KeyCode.E))
                 {
-                    rb.velocity = transform.forward * Mathf.Lerp(0, -moveSpeed, moveTimeElapsed / moveSmoothAmount);
-                    moveTimeElapsed += Time.deltaTime;
+                    // Forward
+                    if (moveTimeElapsed < moveSmoothAmount)
+                    {
+                        rb.velocity = transform.forward * Mathf.Lerp(0, -moveSpeed, moveTimeElapsed / moveSmoothAmount);
+                        moveTimeElapsed += Time.deltaTime;
+                    }
+                    else
+                    {
+                        rb.velocity = transform.forward * -moveSpeed;
+                    }
                 }
                 else
                 {
-                    rb.velocity = transform.forward * -moveSpeed;
+                    // Right
+                    if (turnTimeElapsed < turnSmoothAmount)
+                    {
+                        realTurnSpeed = Mathf.Lerp(0, turnSpeed, turnTimeElapsed / turnSmoothAmount);
+                        turnTimeElapsed += Time.deltaTime;
+                    }
+                    else
+                    {
+                        realTurnSpeed = turnSpeed;
+                    }
+                    transform.Rotate(transform.up, Time.deltaTime * realTurnSpeed);
                 }
             }
-            else
+            else if (Input.GetKey(KeyCode.E))
             {
-                // Right
-                if (turnTimeElapsed < turnSmoothAmount)
-                {
-                    realTurnSpeed = Mathf.Lerp(0, turnSpeed, turnTimeElapsed / turnSmoothAmount);
-                    turnTimeElapsed += Time.deltaTime;
-                }
-                else
-                {
-                    realTurnSpeed = turnSpeed;
-                }
-                transform.Rotate(transform.up, Time.deltaTime * realTurnSpeed);
-            }
-        }
-        else if (Input.GetKey(KeyCode.E))
-        {
-            //isKeyPressed = true;
-            // Left
-            if (turnTimeElapsed < turnSmoothAmount)
-            {
-                realTurnSpeed = Mathf.Lerp(0, -turnSpeed, turnTimeElapsed / turnSmoothAmount);
-                turnTimeElapsed += Time.deltaTime;
-            }
-            else
-            {
-                realTurnSpeed = -turnSpeed;
-            }
-            transform.Rotate(transform.up, Time.deltaTime * realTurnSpeed);
-        }
-        // Backward keys
-        else if (Input.GetKey(KeyCode.A))
-        {
-            //isKeyPressed = true;
-            if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
-            {
-                // Backwards
-                if (moveTimeElapsed < moveSmoothAmount)
-                {
-                    rb.velocity = transform.forward * Mathf.Lerp(0, moveSpeed, moveTimeElapsed / moveSmoothAmount);
-                    moveTimeElapsed += Time.deltaTime;
-                }
-                else
-                {
-                    rb.velocity = transform.forward * moveSpeed;
-                }
-            }
-            else
-            {
-                // Right
+                // Left
                 if (turnTimeElapsed < turnSmoothAmount)
                 {
                     realTurnSpeed = Mathf.Lerp(0, -turnSpeed, turnTimeElapsed / turnSmoothAmount);
@@ -105,70 +74,98 @@ public class Wheelchair : MonoBehaviour
                 }
                 transform.Rotate(transform.up, Time.deltaTime * realTurnSpeed);
             }
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            //isKeyPressed = true;
-            // Left
-            if (turnTimeElapsed < turnSmoothAmount)
+            // Backward keys
+            else if (Input.GetKey(KeyCode.A))
             {
-                realTurnSpeed = Mathf.Lerp(0, turnSpeed, turnTimeElapsed / turnSmoothAmount);
-                turnTimeElapsed += Time.deltaTime;
-            }
-            else
-            {
-                realTurnSpeed = turnSpeed;
-            }
-            transform.Rotate(transform.up, Time.deltaTime * realTurnSpeed);
-        }
-
-        if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-        {
-            // Couldn't figure this one out
-            /*if (Input.GetKeyUp(KeyCode.Q) && turnTimeElapsed == turnSmoothAmount)
-            {
-                if (!Input.GetKey(KeyCode.Q))
+                if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
                 {
+                    // Backwards
+                    if (moveTimeElapsed < moveSmoothAmount)
+                    {
+                        rb.velocity = transform.forward * Mathf.Lerp(0, moveSpeed, moveTimeElapsed / moveSmoothAmount);
+                        moveTimeElapsed += Time.deltaTime;
+                    }
+                    else
+                    {
+                        rb.velocity = transform.forward * moveSpeed;
+                    }
+                }
+                else
+                {
+                    // Right
                     if (turnTimeElapsed < turnSmoothAmount)
                     {
-                        realTurnSpeed = Mathf.Lerp(realTurnSpeed, 0, turnTimeElapsed / turnSmoothAmount);
+                        realTurnSpeed = Mathf.Lerp(0, -turnSpeed, turnTimeElapsed / turnSmoothAmount);
                         turnTimeElapsed += Time.deltaTime;
                     }
                     else
                     {
-                        realTurnSpeed = 0;
+                        realTurnSpeed = -turnSpeed;
                     }
                     transform.Rotate(transform.up, Time.deltaTime * realTurnSpeed);
                 }
-            }*/
-
-            /*if (isKeyPressed == true)
+            }
+            else if (Input.GetKey(KeyCode.D))
             {
-                StartCoroutine(StopRotation(realTurnSpeed));
-                isKeyPressed = false;
-            }*/
-            moveTimeElapsed = 0;
-            turnTimeElapsed = 0;
-        }
-    }
+                // Left
+                if (turnTimeElapsed < turnSmoothAmount)
+                {
+                    realTurnSpeed = Mathf.Lerp(0, turnSpeed, turnTimeElapsed / turnSmoothAmount);
+                    turnTimeElapsed += Time.deltaTime;
+                }
+                else
+                {
+                    realTurnSpeed = turnSpeed;
+                }
+                transform.Rotate(transform.up, Time.deltaTime * realTurnSpeed);
+            }
 
-    /*IEnumerator StopRotation(float speed)
-    {
-        if (turnTimeElapsed < turnSmoothAmount)
+            if (Input.GetKeyUp(KeyCode.Q) || Input.GetKeyUp(KeyCode.E) || Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
+            {
+                // Couldn't figure this one out
+                /*if (Input.GetKeyUp(KeyCode.Q) && turnTimeElapsed == turnSmoothAmount)
+                {
+                    if (!Input.GetKey(KeyCode.Q))
+                    {
+                        if (turnTimeElapsed < turnSmoothAmount)
+                        {
+                            realTurnSpeed = Mathf.Lerp(realTurnSpeed, 0, turnTimeElapsed / turnSmoothAmount);
+                            turnTimeElapsed += Time.deltaTime;
+                        }
+                        else
+                        {
+                            realTurnSpeed = 0;
+                        }
+                        transform.Rotate(transform.up, Time.deltaTime * realTurnSpeed);
+                    }
+                }*/
+
+                /*if (isKeyPressed == true)
+                {
+                    StartCoroutine(StopRotation(realTurnSpeed));
+                    isKeyPressed = false;
+                }*/
+                moveTimeElapsed = 0;
+                turnTimeElapsed = 0;
+            }
+        }
+
+        /*IEnumerator StopRotation(float speed)
         {
-            realTurnSpeed = Mathf.Lerp(speed, 0, turnTimeElapsed / turnSmoothAmount);
-            turnTimeElapsed += Time.deltaTime;
-        }
-        else
-        {
-            realTurnSpeed = 0;
-        }
-        transform.Rotate(transform.up, Time.deltaTime * realTurnSpeed);
+            if (turnTimeElapsed < turnSmoothAmount)
+            {
+                realTurnSpeed = Mathf.Lerp(speed, 0, turnTimeElapsed / turnSmoothAmount);
+                turnTimeElapsed += Time.deltaTime;
+            }
+            else
+            {
+                realTurnSpeed = 0;
+            }
+            transform.Rotate(transform.up, Time.deltaTime * realTurnSpeed);
 
-        yield return new WaitForSeconds(turnTimeElapsed);
-
-
-    }*/
+            yield return new WaitForSeconds(turnTimeElapsed);
+        }*/
+    //}
 }
 
 /* ###############################
