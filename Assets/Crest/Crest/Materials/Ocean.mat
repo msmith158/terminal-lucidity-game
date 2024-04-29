@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _APPLYNORMALMAPPING_ON
   - _CAUSTICS_ON
   - _CLIPSURFACE_ON
   - _FOAM3DLIGHTING_ON
@@ -93,7 +94,7 @@ Material:
     m_Floats:
     - _Albedo: 0
     - _ApplyFlowToNormals: 0
-    - _ApplyNormalMapping: 0
+    - _ApplyNormalMapping: 1
     - _BumpAmt: 0.514
     - _Caustics: 1
     - _CausticsBase: 0.07
@@ -131,7 +132,7 @@ Material:
     - _MipBias: 0
     - _Moving: 0.17
     - _NormalsScale: 40
-    - _NormalsStrength: 0.08
+    - _NormalsStrength: 0.477
     - _NormalsStrengthOverall: 1
     - _Offset: 0.00008
     - _OverrideReflectionCubemap: 0
