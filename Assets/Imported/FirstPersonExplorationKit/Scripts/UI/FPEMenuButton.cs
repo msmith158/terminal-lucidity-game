@@ -18,7 +18,6 @@ namespace Whilefun.FPEKit
     //
     public class FPEMenuButton : Selectable, ISubmitHandler
     {
-
         [Header("Button colors")]
         [SerializeField]
         protected Color regularColor = Color.white;

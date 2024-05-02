@@ -54,7 +54,6 @@ namespace Whilefun.FPEKit
                 {
                     quitGameButton = menuButtons[t];
                 }
-
             }
 
             if (!newGameButton || !continueGameButton || !quitGameButton)

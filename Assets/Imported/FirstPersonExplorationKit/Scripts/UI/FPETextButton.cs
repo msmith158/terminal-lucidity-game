@@ -17,6 +17,9 @@ namespace Whilefun.FPEKit
     {
         
         private Text myText;
+        [SerializeField] private Color RegularTextColour;
+        [SerializeField] private Color highlightTextColour;
+        [SerializeField] private Color disabledTextColour;
 
         protected override void Awake()
         {
@@ -37,7 +40,7 @@ namespace Whilefun.FPEKit
             if (interactable)
             {
                 myImage.color = regularColor;
-                myText.color = regularColor;
+                myText.color = RegularTextColour;
                 highlighted = false;
             }
 
@@ -47,7 +50,7 @@ namespace Whilefun.FPEKit
         {
 
             base.enableButton();
-            myText.color = regularColor;
+            myText.color = RegularTextColour;
 
         }
 
@@ -55,7 +58,7 @@ namespace Whilefun.FPEKit
         {
 
             base.disableButton();
-            myText.color = disabledColor;
+            myText.color = disabledTextColour;
 
         }
         
@@ -64,7 +67,7 @@ namespace Whilefun.FPEKit
         {
 
             base.highlight();
-            myText.color = highlightColor;
+            myText.color = highlightTextColour;
             
         }
 
@@ -72,7 +75,7 @@ namespace Whilefun.FPEKit
         {
 
             base.unhighlight();
-            myText.color = regularColor;
+            myText.color = RegularTextColour;
 
         }
 

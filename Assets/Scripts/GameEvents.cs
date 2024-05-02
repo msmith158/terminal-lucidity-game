@@ -12,6 +12,8 @@ public class GameEvents : MonoBehaviour
     [SerializeField] private GameObject wheelchair;
     [SerializeField] private Transform wheelchairPos;
     [SerializeField] private UnityEvent fadeEndEvent;
+    [SerializeField] private UnityEvent introEvent;
+    [SerializeField] private UnityEvent outroEvent;
     [Header("Audio Stuff")]
     [SerializeField] private float audioFadeStartDelay;
     public float transitionFadeInTime;
@@ -24,17 +26,18 @@ public class GameEvents : MonoBehaviour
     bool playerDocked;
     bool memoryTrigger;
     Holder holder;
-    float audioFadeInDelay;
-    float audioFadeOutDelay;
-    List<AudioSource> audioSourceList = new List<AudioSource>();
-    List<float> audioFadeInQueue = new List<float>();
-    List<float> audioFadeOutQueue = new List<float>();
-    List<float> waitBeforeAudioFadeQueue = new List<float>();
+    float waitBeforeLevelChange;
 
     // Start is called before the first frame update
     void Start()
     {
         whiteScreen = whiteScreen.GetComponent<Image>();
+
+        if (SceneManager.GetActiveScene().name == "1_Bedroom")
+        {
+            GameObject.Find("FPEPlayerController(Clone)").transform.position = GameObject.Find("PlayerStart").transform.position;
+            GameObject.Find("FPEPlayerController(Clone)").transform.rotation = GameObject.Find("PlayerStart").transform.rotation;
+        }
 
         if (SceneManager.GetActiveScene().name == "4_Bedroom2") holder = GameObject.Find("Holder").GetComponent<Holder>();
 
@@ -59,16 +62,16 @@ public class GameEvents : MonoBehaviour
                     break;
             }
         }
-        else
+        /*else if (SceneManager.GetActiveScene().name != "0_Intro")
         {
             Debug.Log("Holder is null");
             GameObject.Find("ObjectPickupLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
             GameObject.Find("ObjectTossLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
             GameObject.Find("ObjectExamineLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
             GameObject.Find("ObjectInInventoryPosition").GetComponentInChildren<MeshRenderer>().enabled = false;
-        }
+        }*/
 
-        if (whiteScreen.color.a == 1)
+        if (whiteScreen.color.a == 1 && (SceneManager.GetActiveScene().name != "0_Intro" || SceneManager.GetActiveScene().name == "5_Outro"))
         {
             if (enableObjectOnFadeInComplete != null)
             {
@@ -76,21 +79,16 @@ public class GameEvents : MonoBehaviour
             }
             if (SceneManager.GetActiveScene().name != "3_Remembrance") StartCoroutine(TransitionFadeIn());
         }
-    }
 
-    public void AddAudioFadeInDelayToQueue(float audioFadeDelay)
-    {
-        audioFadeInQueue.Add(audioFadeDelay);
-    }
-
-    public void AddAudioFadeOutDelayToQueue(float audioFadeDelay)
-    {
-        audioFadeOutQueue.Add(audioFadeDelay);
-    }
-
-    public void AddWaitBeforeAudioToQueue(float audioFadeWaitDelay)
-    {
-        waitBeforeAudioFadeQueue.Add(audioFadeWaitDelay);
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "0_Intro":
+                introEvent.Invoke();
+                break;
+            case "5_Outro":
+                outroEvent.Invoke();
+                break;
+        }
     }
 
     public void SetFadeOut(float fadeOutTime)
@@ -113,6 +111,11 @@ public class GameEvents : MonoBehaviour
         endFadeOutTime = endGameFadeTime;
     }
 
+    public void SetLevelChangeHalt(float waitTime)
+    {
+        waitBeforeLevelChange = waitTime;
+    }
+
     public void InitialiseTransitionFadeOut(string sceneName)
     {
         StartCoroutine(TransitionFadeOut(sceneName));
@@ -123,19 +126,9 @@ public class GameEvents : MonoBehaviour
         StartCoroutine(EndGame(sceneName)); 
     }
 
-    public void AddAudioSourceToList(AudioSource audioSource)
+    public void TimedChangeLevel(string sceneName)
     {
-        audioSourceList.Add(audioSource);
-    }
-
-    public void FadeInAudio()
-    {
-
-    }
-
-    public void FadeOutAudio()
-    {
-
+        StartCoroutine(ChangeLevel(sceneName));
     }
 
     IEnumerator AltStart()
@@ -189,6 +182,14 @@ public class GameEvents : MonoBehaviour
 
         yield return new WaitForSeconds(haltAtEndTime);
 
+        GameObject.Find("FPEPlayerController(Clone)").transform.parent = null;
+        DontDestroyOnLoad(GameObject.Find("FPEPlayerController(Clone)"));
+        SceneManager.LoadScene(scene, LoadSceneMode.Single);
+    }
+
+    IEnumerator ChangeLevel(string scene)
+    {
+        yield return new WaitForSeconds(waitBeforeLevelChange);
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
     }
 
