@@ -8,26 +8,62 @@ public class GameEvents : MonoBehaviour
 {
     [SerializeField] private Image whiteScreen;
     [SerializeField] private float fadeOutTime;
+    [SerializeField] private GameObject wheelchair;
+    [SerializeField] private Transform wheelchairPos;
     public float transitionFadeInTime;
     public CapsuleCollider enableObjectOnFadeInComplete;
     public float objectEnableAdditionalWait;
     float transitionFadeOutTime;
     float haltAtStartTime;
     float haltAtEndTime;
+    bool playerDocked;
+    bool memoryTrigger;
+    Holder holder;
 
     // Start is called before the first frame update
     void Start()
     {
         whiteScreen = whiteScreen.GetComponent<Image>();
-        GameObject.Find("ObjectPickupLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
-        GameObject.Find("ObjectTossLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
-        GameObject.Find("ObjectExamineLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
-        GameObject.Find("ObjectInInventoryPosition").GetComponentInChildren<MeshRenderer>().enabled = false;
+
+        if (SceneManager.GetActiveScene().name == "4_Bedroom2") holder = GameObject.Find("Holder").GetComponent<Holder>();
+
+        Debug.Log("1");
+        if (holder != null)
+        {
+            memoryTrigger = holder.isMemorySceneTriggered;
+            Debug.Log("2");
+
+            switch (memoryTrigger)
+            {
+                case true:
+                    Debug.Log("3");
+                    StartCoroutine(AltStart());
+                    break;
+                case false:
+                    Debug.Log("4");
+                    GameObject.Find("ObjectPickupLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
+                    GameObject.Find("ObjectTossLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
+                    GameObject.Find("ObjectExamineLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
+                    GameObject.Find("ObjectInInventoryPosition").GetComponentInChildren<MeshRenderer>().enabled = false;
+                    break;
+            }
+        }
+        else
+        {
+            Debug.Log("Holder is null");
+            GameObject.Find("ObjectPickupLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
+            GameObject.Find("ObjectTossLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
+            GameObject.Find("ObjectExamineLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
+            GameObject.Find("ObjectInInventoryPosition").GetComponentInChildren<MeshRenderer>().enabled = false;
+        }
 
         if (whiteScreen.color.a == 1)
         {
-            enableObjectOnFadeInComplete.enabled = false;
-            StartCoroutine(TransitionFadeIn());
+            if (enableObjectOnFadeInComplete != null)
+            {
+                enableObjectOnFadeInComplete.enabled = false;
+            }
+            if (SceneManager.GetActiveScene().name != "3_Remembrance") StartCoroutine(TransitionFadeIn());
         }
     }
 
@@ -53,7 +89,24 @@ public class GameEvents : MonoBehaviour
 
     public void EndGameEvent()
     {
-        StartCoroutine(EndGame());
+        StartCoroutine(EndGame()); 
+    }
+
+    IEnumerator AltStart()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log("5");
+        GameObject.Find("ObjectPickupLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
+        GameObject.Find("ObjectTossLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
+        GameObject.Find("ObjectExamineLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
+        GameObject.Find("ObjectInInventoryPosition").GetComponentInChildren<MeshRenderer>().enabled = false;
+        GameObject.Find("FPEPlayerController(Clone)").GetComponent<CharacterController>().enabled = false;
+        if (wheelchairPos != null) GameObject.Find("FPEPlayerController(Clone)").transform.parent = wheelchairPos;
+        GameObject.Find("FPEPlayerController(Clone)").transform.position = new Vector3(wheelchairPos.position.x + 0.023f, wheelchairPos.position.y + 0.613f, wheelchairPos.position.z + 0.094f);
+        GameObject.Find("MainCamera").transform.rotation = new Quaternion(40, 0, 0, 0);
+        wheelchair.GetComponent<Wheelchair>().enabled = true;
+        GameObject.Find("FPEPlayerController(Clone)").GetComponent<Whilefun.FPEKit.FPEFirstPersonController>().playerFrozen = false;
+        Debug.Log("THE ONE PIECE IS REAL!!!");
     }
 
     IEnumerator TransitionFadeIn()

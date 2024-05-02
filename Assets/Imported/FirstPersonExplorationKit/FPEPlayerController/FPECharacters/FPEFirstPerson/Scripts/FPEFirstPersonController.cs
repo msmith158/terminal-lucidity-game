@@ -120,7 +120,7 @@ namespace Whilefun.FPEKit {
         [SerializeField, Tooltip("Rate at which the player will smoothly move to dock and undock positions (larger number means quicker movement)")]
         private float dockingLerpFactor = 5.0f;
 
-        private bool playerDocked = false;
+        public bool playerDocked = false;
         public enum ePlayerDockingState
         {
             IDLE = 0,
