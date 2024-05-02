@@ -724,6 +724,7 @@ namespace Whilefun.FPEKit
                         // Examination logic: Position, Rotation, etc.
                         float examinationOffsetUp = currentHeldObject.GetComponent<FPEInteractablePickupScript>().examinationOffsetUp;
                         float examinationOffsetForward = currentHeldObject.GetComponent<FPEInteractablePickupScript>().examinationOffsetForward;
+                        if (interactionObjectExamineLocation == null) interactionObjectExamineLocation = GameObject.Find("ObjectExamineLocation");
                         currentHeldObject.transform.position = interactionObjectExamineLocation.transform.position + Vector3.up * examinationOffsetUp + interactionObjectExamineLocation.transform.forward * examinationOffsetForward;
                         float rotationInputX = 0.0f;
                         float rotationInputY = 0.0f;
@@ -1329,6 +1330,7 @@ namespace Whilefun.FPEKit
                 c.isTrigger = true;
             }
 
+            if (interactionObjectPickupLocation == null) interactionObjectPickupLocation = GameObject.Find("ObjectPickupLocation");
             go.transform.position = interactionObjectPickupLocation.transform.position;
 
             // We put the pickup into the player's hands so that it is very safely and easily not destroyed when we change levels
@@ -1584,7 +1586,7 @@ namespace Whilefun.FPEKit
             if (currentHeldObject)
             {
 
-                Destroy(currentHeldObject.gameObject);
+                //Destroy(currentHeldObject.gameObject);
                 currentHeldObject = null;
 
             }

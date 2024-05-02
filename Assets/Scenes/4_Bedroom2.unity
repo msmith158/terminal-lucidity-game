@@ -39207,7 +39207,7 @@ MonoBehaviour:
   audioLogText: <DEFAULT PICKUP SOUND AUDIO LOG TEXT>
   soundPlaybackBehaviour: 0
   soundToPlayOnInteract: {fileID: 0}
-  interactionString: Sit in wheelchair
+  interactionString: ' '
   canInteractWithWhileHoldingObject: 0
   myDockTransform: {fileID: 1845810379}
   myFocusTransform: {fileID: 552836860}
@@ -48748,6 +48748,45 @@ MonoBehaviour:
   transitionFadeInTime: 3
   enableObjectOnFadeInComplete: {fileID: 0}
   objectEnableAdditionalWait: 0.5
+  fadeEndEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 730320677}
+        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
+        m_MethodName: AddToSubtitleQueue
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: I have to get out and find my family.
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 730320677}
+        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
+        m_MethodName: AddToWaitQueue
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: I have to find my family.
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 730320677}
+        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
+        m_MethodName: InitialiseSubtitlesMulti
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: I have to find my family.
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &730320677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53563,14 +53602,50 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 730320676}
         m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
-        m_MethodName: EndGameEvent
-        m_Mode: 1
+        m_MethodName: SetEndFadeTime
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 0.2
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 730320676}
+        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
+        m_MethodName: SetStartHaltTime
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 4
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 730320676}
+        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
+        m_MethodName: SetEndHaltTime
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 730320676}
+        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
+        m_MethodName: EndGameEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 5_Outro
           m_BoolArgument: 0
         m_CallState: 2
   ActivationFailureEvent:
@@ -99893,7 +99968,7 @@ MonoBehaviour:
   doorOpenFailureSounds: {fileID: 11400000, guid: 3b1dd49eb767b294db25a4a8bee34f64,
     type: 2}
   swingAngle: 135
-  swingOpenTimeInSeconds: 4
+  swingOpenTimeInSeconds: 3
   doorSwingSnapAngle: 1
   autoMovePlayerToSafeZones: 0
   drawDebugGizmos: 1
@@ -103397,7 +103472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Imported/FirstPersonExplorationKit/Scenes/DemoScenes_2.2/demoScene_2.unity
     guid: 6dd73e1d1daa41a418e414d48396610e
   - enabled: 1
+    path: Assets/Scenes/0_Intro.unity
+    guid: 35398a394e0988f4fa15fbda12af96f2
+  - enabled: 1
     path: Assets/Scenes/1_Bedroom.unity
     guid: 4f52a50dfaf84a44aba4bbc668673430
   - enabled: 1
@@ -26,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/4_Bedroom2.unity
     guid: 2491caabe683438479779d8626f8d011
+  - enabled: 1
+    path: Assets/Scenes/5_Outro.unity
+    guid: b55b922ebfa21ae478bc9c700dde70d8
   m_configObjects: {}
