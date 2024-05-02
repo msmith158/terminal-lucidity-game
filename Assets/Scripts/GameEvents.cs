@@ -27,6 +27,9 @@ public class GameEvents : MonoBehaviour
     float audioFadeInDelay;
     float audioFadeOutDelay;
     List<AudioSource> audioSourceList = new List<AudioSource>();
+    List<float> audioFadeInQueue = new List<float>();
+    List<float> audioFadeOutQueue = new List<float>();
+    List<float> waitBeforeAudioFadeQueue = new List<float>();
 
     // Start is called before the first frame update
     void Start()
@@ -75,14 +78,19 @@ public class GameEvents : MonoBehaviour
         }
     }
 
-    public void SetAudioFadeInDelay(float audioFadeDelay)
+    public void AddAudioFadeInDelayToQueue(float audioFadeDelay)
     {
-        audioFadeInDelay = audioFadeDelay;
+        audioFadeInQueue.Add(audioFadeDelay);
     }
 
-    public void SetAudioFadeOutDelay(float audioFadeDelay)
+    public void AddAudioFadeOutDelayToQueue(float audioFadeDelay)
     {
-        audioFadeOutDelay = audioFadeDelay;
+        audioFadeOutQueue.Add(audioFadeDelay);
+    }
+
+    public void AddWaitBeforeAudioToQueue(float audioFadeWaitDelay)
+    {
+        waitBeforeAudioFadeQueue.Add(audioFadeWaitDelay);
     }
 
     public void SetFadeOut(float fadeOutTime)
@@ -115,9 +123,19 @@ public class GameEvents : MonoBehaviour
         StartCoroutine(EndGame(sceneName)); 
     }
 
-    public void AddAudioSourceToList(AudioSource audioSources)
+    public void AddAudioSourceToList(AudioSource audioSource)
     {
-        Debug.Log("HI");
+        audioSourceList.Add(audioSource);
+    }
+
+    public void FadeInAudio()
+    {
+
+    }
+
+    public void FadeOutAudio()
+    {
+
     }
 
     IEnumerator AltStart()
