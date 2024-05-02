@@ -16,8 +16,8 @@ public class SubtitleSystem : MonoBehaviour
     int subtitleQueuePos;
     int waitQueuePos;
     float pauseTimeGlobal;
-    [HideInInspector] public List<string> subtitleQueue = new();
-    [HideInInspector] public List<float> waitQueue = new();
+    [HideInInspector] public List<string> subtitleQueue = new List<string>();
+    [HideInInspector] public List<float> waitQueue = new List<float>();
 
     // Start is called before the first frame update
     void Start()

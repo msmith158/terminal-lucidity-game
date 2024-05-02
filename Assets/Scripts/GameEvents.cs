@@ -11,6 +11,9 @@ public class GameEvents : MonoBehaviour
     [SerializeField] private float fadeOutTime;
     [SerializeField] private GameObject wheelchair;
     [SerializeField] private Transform wheelchairPos;
+    [SerializeField] private UnityEvent fadeEndEvent;
+    [Header("Audio Stuff")]
+    [SerializeField] private float audioFadeStartDelay;
     public float transitionFadeInTime;
     public CapsuleCollider enableObjectOnFadeInComplete;
     public float objectEnableAdditionalWait;
@@ -21,7 +24,9 @@ public class GameEvents : MonoBehaviour
     bool playerDocked;
     bool memoryTrigger;
     Holder holder;
-    [SerializeField] private UnityEvent fadeEndEvent;
+    float audioFadeInDelay;
+    float audioFadeOutDelay;
+    List<AudioSource> audioSourceList = new List<AudioSource>();
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +75,16 @@ public class GameEvents : MonoBehaviour
         }
     }
 
+    public void SetAudioFadeInDelay(float audioFadeDelay)
+    {
+        audioFadeInDelay = audioFadeDelay;
+    }
+
+    public void SetAudioFadeOutDelay(float audioFadeDelay)
+    {
+        audioFadeOutDelay = audioFadeDelay;
+    }
+
     public void SetFadeOut(float fadeOutTime)
     {
         transitionFadeOutTime = fadeOutTime;
@@ -100,6 +115,11 @@ public class GameEvents : MonoBehaviour
         StartCoroutine(EndGame(sceneName)); 
     }
 
+    public void AddAudioSourceToList(AudioSource audioSources)
+    {
+        Debug.Log("HI");
+    }
+
     IEnumerator AltStart()
     {
         yield return new WaitForSeconds(0.1f);
@@ -114,6 +134,8 @@ public class GameEvents : MonoBehaviour
         GameObject.Find("MainCamera").transform.rotation = new Quaternion(30, 0, 0, 0);
         wheelchair.GetComponent<Wheelchair>().enabled = true;
         GameObject.Find("FPEPlayerController(Clone)").GetComponent<Whilefun.FPEKit.FPEFirstPersonController>().playerDocked = true;
+        GameObject.Find("FPEPlayerController(Clone)").GetComponent<Whilefun.FPEKit.FPEMouseLook>().MinimumX = -30;
+        GameObject.Find("FPEPlayerController(Clone)").GetComponent<Whilefun.FPEKit.FPEMouseLook>().MaximumX = 30;
         Debug.Log("THE ONE PIECE IS REAL!!!");
 
         StartCoroutine(TransitionFadeIn());
@@ -156,6 +178,8 @@ public class GameEvents : MonoBehaviour
     {
         GameObject.Find("FPEPlayerController(Clone)").GetComponent<Whilefun.FPEKit.FPEFirstPersonController>().playerFrozen = true;
         wheelchair.GetComponent<Wheelchair>().enabled = false;
+        GameObject.Find("FPEDefaultHUD(Clone)").GetComponentInChildren<Image>().CrossFadeAlpha(0, 0.1f, false);
+        GameObject.Find("FPEDefaultHUD(Clone)").GetComponentInChildren<Text>().CrossFadeAlpha(0, 0.1f, false);
 
         yield return new WaitForSeconds(haltAtStartTime);
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Whilefun.FPEKit
 {
@@ -2291,6 +2292,7 @@ namespace Whilefun.FPEKit
         // If using another Character Controller (UFPS, etc.) substitute mouselook disable functionality
         private void disableMouseLook()
         {
+            if (thePlayer == null) thePlayer = GameObject.Find("FPEPlayerController(Clone)");
             thePlayer.GetComponent<FPEMouseLook>().enableMouseLook = false;
             mouseLookEnabled = false;
         }
@@ -2299,6 +2301,7 @@ namespace Whilefun.FPEKit
         private void enableMouseLook()
         {
             thePlayer.GetComponent<FPEMouseLook>().enableMouseLook = true;
+            if (SceneManager.GetActiveScene().name == "4_Bedroom2") thePlayer = null;
             mouseLookEnabled = true;
         }
         // Locks movement of Character Controller. 

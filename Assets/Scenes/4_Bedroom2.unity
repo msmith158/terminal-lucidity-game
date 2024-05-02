@@ -62249,7 +62249,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 80dc0d6e21dff89408c8d111ecb5ea4c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -97850,79 +97850,7 @@ MonoBehaviour:
   pickupRepeatMode: 1
   OnPutBackEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1891758135}
-        m_TargetAssemblyTypeName: UnityEngine.Collider, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 3
-          m_StringArgument: 2_LakeMemory
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 730320677}
-        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
-        m_MethodName: AddToSubtitleQueue
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: I remember that day.
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 730320677}
-        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
-        m_MethodName: InitialiseSubtitlesMulti
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: I remember that day.
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 730320676}
-        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
-        m_MethodName: SetEndHaltTime
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 4
-          m_StringArgument: 2_LakeMemory
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 730320676}
-        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
-        m_MethodName: SetFadeOut
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 3
-          m_StringArgument: 2_LakeMemory
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 730320676}
-        m_TargetAssemblyTypeName: GameEvents, Assembly-CSharp
-        m_MethodName: InitialiseTransitionFadeOut
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 3
-          m_StringArgument: 2_LakeMemory
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   putbackRepeatMode: 0
   OnExamineStartEvent:
     m_PersistentCalls:
