@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 
 namespace Whilefun.FPEKit {
 
@@ -366,7 +367,7 @@ namespace Whilefun.FPEKit {
                     myMouseLook.LookAtPosition(transform, m_Camera.transform, targetFocalPoint);
 
                 }
-                /* else if (currentDockingState == ePlayerDockingState.UNDOCKING)
+                /*else if (currentDockingState == ePlayerDockingState.UNDOCKING)
                 {
 
                     transform.position = Vector3.Lerp(transform.position, targetDockPosition, dockingLerpFactor * Time.fixedDeltaTime);

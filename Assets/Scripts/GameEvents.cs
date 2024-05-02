@@ -8,14 +8,14 @@ using UnityEngine.SceneManagement;
 public class GameEvents : MonoBehaviour
 {
     [SerializeField] private Image whiteScreen;
+    [SerializeField] private Image endScreen;
     [SerializeField] private float fadeOutTime;
     [SerializeField] private GameObject wheelchair;
     [SerializeField] private Transform wheelchairPos;
     [SerializeField] private UnityEvent fadeEndEvent;
     [SerializeField] private UnityEvent introEvent;
     [SerializeField] private UnityEvent outroEvent;
-    [Header("Audio Stuff")]
-    [SerializeField] private float audioFadeStartDelay;
+    [SerializeField] private float imageFadeInTime;
     public float transitionFadeInTime;
     public CapsuleCollider enableObjectOnFadeInComplete;
     public float objectEnableAdditionalWait;
@@ -27,19 +27,33 @@ public class GameEvents : MonoBehaviour
     bool memoryTrigger;
     Holder holder;
     float waitBeforeLevelChange;
+    float waitBeforeFadeOut;
 
     // Start is called before the first frame update
     void Start()
     {
         whiteScreen = whiteScreen.GetComponent<Image>();
+        GameObject FPS = GameObject.Find("FPEPlayerController(Clone)");
+        GameObject PS = GameObject.Find("PlayerStart");
 
-        if (SceneManager.GetActiveScene().name == "1_Bedroom")
+        switch (SceneManager.GetActiveScene().name)
         {
-            GameObject.Find("FPEPlayerController(Clone)").transform.position = GameObject.Find("PlayerStart").transform.position;
-            GameObject.Find("FPEPlayerController(Clone)").transform.rotation = GameObject.Find("PlayerStart").transform.rotation;
+            case "0_Intro":
+                introEvent.Invoke();
+                break;
+            case "1_Bedroom":
+                FPS.transform.position = PS.transform.position;
+                break;
+            case "2_LakeMemory":
+                FPS.transform.position = PS.transform.position;
+                break;
+            case "4_Bedroom2":
+                holder = GameObject.Find("Holder").GetComponent<Holder>();
+                break;
+            case "5_Outro":
+                outroEvent.Invoke();
+                break;
         }
-
-        if (SceneManager.GetActiveScene().name == "4_Bedroom2") holder = GameObject.Find("Holder").GetComponent<Holder>();
 
         Debug.Log("1");
         if (holder != null)
@@ -71,7 +85,7 @@ public class GameEvents : MonoBehaviour
             GameObject.Find("ObjectInInventoryPosition").GetComponentInChildren<MeshRenderer>().enabled = false;
         }*/
 
-        if (whiteScreen.color.a == 1 && (SceneManager.GetActiveScene().name != "0_Intro" || SceneManager.GetActiveScene().name == "5_Outro"))
+        if (whiteScreen.color.a == 1 && SceneManager.GetActiveScene().name != "0_Intro")
         {
             if (enableObjectOnFadeInComplete != null)
             {
@@ -79,16 +93,20 @@ public class GameEvents : MonoBehaviour
             }
             if (SceneManager.GetActiveScene().name != "3_Remembrance") StartCoroutine(TransitionFadeIn());
         }
+    }
 
-        switch (SceneManager.GetActiveScene().name)
-        {
-            case "0_Intro":
-                introEvent.Invoke();
-                break;
-            case "5_Outro":
-                outroEvent.Invoke();
-                break;
-        }
+    public void FadeInImage()
+    {
+        Color fixedColor = endScreen.color;
+        fixedColor.a = 1;
+        endScreen.color = fixedColor;
+        endScreen.CrossFadeAlpha(0f, 0f, true);
+        endScreen.CrossFadeAlpha(1, 3f, false);
+    }
+
+    public void FadeOutImage()
+    {
+        StartCoroutine(FadeOutTheImage());
     }
 
     public void SetFadeOut(float fadeOutTime)
@@ -135,10 +153,10 @@ public class GameEvents : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         Debug.Log("5");
-        GameObject.Find("ObjectPickupLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
+        /*GameObject.Find("ObjectPickupLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
         GameObject.Find("ObjectTossLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
         GameObject.Find("ObjectExamineLocation").GetComponentInChildren<MeshRenderer>().enabled = false;
-        GameObject.Find("ObjectInInventoryPosition").GetComponentInChildren<MeshRenderer>().enabled = false;
+        GameObject.Find("ObjectInInventoryPosition").GetComponentInChildren<MeshRenderer>().enabled = false;*/
         GameObject.Find("FPEPlayerController(Clone)").GetComponent<CharacterController>().enabled = false;
         if (wheelchairPos != null) GameObject.Find("FPEPlayerController(Clone)").transform.parent = wheelchairPos;
         GameObject.Find("FPEPlayerController(Clone)").transform.position = wheelchairPos.position;
@@ -154,18 +172,22 @@ public class GameEvents : MonoBehaviour
 
     IEnumerator TransitionFadeIn()
     {
-        Color fixedColor = whiteScreen.color;
-        fixedColor.a = 1;
-        whiteScreen.color = fixedColor;
-        whiteScreen.CrossFadeAlpha(1f, 0f, true);
-        whiteScreen.CrossFadeAlpha(0, transitionFadeInTime, false);
+        if (SceneManager.GetActiveScene().name != "5_Outro")
+        {
+            Color fixedColor = whiteScreen.color;
+            fixedColor.a = 1;
+            whiteScreen.color = fixedColor;
+            whiteScreen.CrossFadeAlpha(1f, 0f, true);
+            whiteScreen.CrossFadeAlpha(0, transitionFadeInTime, false);
 
-        GameObject.Find("FPEPlayerController(Clone)").GetComponent<Whilefun.FPEKit.FPEFirstPersonController>().playerFrozen = false;
+            GameObject.Find("FPEPlayerController(Clone)").GetComponent<Whilefun.FPEKit.FPEFirstPersonController>().playerFrozen = false;
 
-        yield return new WaitForSeconds(transitionFadeInTime);
-        yield return new WaitForSeconds(objectEnableAdditionalWait);
-        if (enableObjectOnFadeInComplete != null) enableObjectOnFadeInComplete.enabled = true;
-        if (fadeEndEvent != null) fadeEndEvent.Invoke();
+            yield return new WaitForSeconds(transitionFadeInTime);
+            yield return new WaitForSeconds(objectEnableAdditionalWait);
+            if (enableObjectOnFadeInComplete != null) enableObjectOnFadeInComplete.enabled = true;
+            if (fadeEndEvent != null) fadeEndEvent.Invoke();
+        }
+        else yield return null;
     }
 
     IEnumerator TransitionFadeOut(string scene)
@@ -185,6 +207,17 @@ public class GameEvents : MonoBehaviour
         GameObject.Find("FPEPlayerController(Clone)").transform.parent = null;
         DontDestroyOnLoad(GameObject.Find("FPEPlayerController(Clone)"));
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
+    }
+
+    IEnumerator FadeOutTheImage()
+    {
+        yield return new WaitForSeconds(transitionFadeOutTime);
+
+        Color fixedColor = endScreen.color;
+        fixedColor.a = 1;
+        endScreen.color = fixedColor;
+        endScreen.CrossFadeAlpha(1f, 0f, true);
+        endScreen.CrossFadeAlpha(0, 3f, false);
     }
 
     IEnumerator ChangeLevel(string scene)
