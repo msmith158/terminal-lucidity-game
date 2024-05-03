@@ -54,7 +54,9 @@ QualitySettings:
     terrainBillboardStart: 50
     terrainFadeLength: 5
     terrainMaxTrees: 50
-    excludedTargetPlatforms: []
+    excludedTargetPlatforms:
+    - Standalone
+    - Server
   - serializedVersion: 3
     name: Fast
     pixelLightCount: 0
@@ -103,7 +105,9 @@ QualitySettings:
     terrainBillboardStart: 50
     terrainFadeLength: 5
     terrainMaxTrees: 50
-    excludedTargetPlatforms: []
+    excludedTargetPlatforms:
+    - Server
+    - Standalone
   - serializedVersion: 3
     name: Simple
     pixelLightCount: 1
@@ -152,7 +156,9 @@ QualitySettings:
     terrainBillboardStart: 50
     terrainFadeLength: 5
     terrainMaxTrees: 50
-    excludedTargetPlatforms: []
+    excludedTargetPlatforms:
+    - Standalone
+    - Server
   - serializedVersion: 3
     name: Good
     pixelLightCount: 2
@@ -201,7 +207,9 @@ QualitySettings:
     terrainBillboardStart: 50
     terrainFadeLength: 5
     terrainMaxTrees: 50
-    excludedTargetPlatforms: []
+    excludedTargetPlatforms:
+    - Server
+    - Standalone
   - serializedVersion: 3
     name: Beautiful
     pixelLightCount: 3
@@ -250,7 +258,9 @@ QualitySettings:
     terrainBillboardStart: 50
     terrainFadeLength: 5
     terrainMaxTrees: 50
-    excludedTargetPlatforms: []
+    excludedTargetPlatforms:
+    - Standalone
+    - Server
   - serializedVersion: 3
     name: Fantastic
     pixelLightCount: 4
@@ -303,8 +313,8 @@ QualitySettings:
   m_TextureMipmapLimitGroupNames: []
   m_PerPlatformDefaultQuality:
     Android: 0
-    Server: 0
-    Standalone: 0
+    Server: 5
+    Standalone: 5
     WebGL: 0
     Windows Store Apps: 0
     iPhone: 0
