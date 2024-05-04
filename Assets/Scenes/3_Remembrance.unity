@@ -1008,12 +1008,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whiteScreen: {fileID: 1365548994}
+  endScreen: {fileID: 0}
   fadeOutTime: 4
   wheelchair: {fileID: 0}
+  wheelchairPos: {fileID: 0}
+  fadeEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  introEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  outroEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  imageFadeInTime: 0
   transitionFadeInTime: 3
   enableObjectOnFadeInComplete: {fileID: 0}
   objectEnableAdditionalWait: 2
-  isMemorySceneTriggered: 0
 --- !u!114 &1514200223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1038,7 +1049,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Can we get much higher?
+          m_StringArgument: Jenny. My wife.
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1514200221}
@@ -1285,7 +1296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da62e3a82b216ef4ba54c74a1284e21e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameEvents: {fileID: 1514200222}
+  isMemorySceneTriggered: 0
 --- !u!4 &2055607272
 Transform:
   m_ObjectHideFlags: 0

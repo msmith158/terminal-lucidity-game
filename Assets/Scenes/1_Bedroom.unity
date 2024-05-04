@@ -29346,7 +29346,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Wake up and meet the wife Susan.
+          m_StringArgument: Is that me?
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 300373458}
@@ -29844,7 +29844,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 6567302232667013497}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
@@ -45929,7 +45929,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Day in the life of a true brexit geezer.
+          m_StringArgument: She must be my wife.
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 300373458}
@@ -60773,7 +60773,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Time to take George to football.
+          m_StringArgument: It's an old photo of a familiar house.
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 300373458}
@@ -97696,7 +97696,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: I remember that day.
+          m_StringArgument: Yeah, I remember that day.
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 730320677}
@@ -97760,7 +97760,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: My little princess, isn't she beautiful?
+          m_StringArgument: This photo looks familiar.
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 300373458}
@@ -105318,6 +105318,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1702046143709914691, guid: ddbfc4406ff68314992ce949f2941004,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702046143709914691, guid: ddbfc4406ff68314992ce949f2941004,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702046143709914691, guid: ddbfc4406ff68314992ce949f2941004,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595087592377899011, guid: ddbfc4406ff68314992ce949f2941004,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -320
+      objectReference: {fileID: 0}
     - target: {fileID: 8162042714743762344, guid: ddbfc4406ff68314992ce949f2941004,
         type: 3}
       propertyPath: m_Name
@@ -105396,7 +105416,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Quick stop at Toby's, and load up that plate.
+          m_StringArgument: A sticky note of tasks.
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 300373458}

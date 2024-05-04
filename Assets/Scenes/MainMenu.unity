@@ -840,7 +840,7 @@ PrefabInstance:
     - target: {fileID: 114999522607253704, guid: ae6d20aa8e26b7b47aa89ac5ff39984e,
         type: 3}
       propertyPath: m_Text
-      value: "Build Version 1.0.3\n\xA9  Mitchel Smith, 2024."
+      value: "Build Version 1.1.0\n\xA9  Mitchel Smith, 2024."
       objectReference: {fileID: 0}
     - target: {fileID: 114999522607253704, guid: ae6d20aa8e26b7b47aa89ac5ff39984e,
         type: 3}

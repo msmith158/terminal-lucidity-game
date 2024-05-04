@@ -399,7 +399,7 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 17
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -464,7 +464,7 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[12].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -474,12 +474,12 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[14].m_Mode
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[15].m_Mode
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -555,12 +555,12 @@ PrefabInstance:
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[13].m_Target
       value: 
-      objectReference: {fileID: 602375800}
+      objectReference: {fileID: 1233201381}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[14].m_Target
       value: 
-      objectReference: {fileID: 602375800}
+      objectReference: {fileID: 1233201381}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[15].m_Target
@@ -719,22 +719,22 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[12].m_MethodName
-      value: AddToSubtitleQueue
-      objectReference: {fileID: 0}
-    - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
-        type: 3}
-      propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[13].m_MethodName
-      value: AddToWaitQueue
-      objectReference: {fileID: 0}
-    - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
-        type: 3}
-      propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[14].m_MethodName
       value: InitialiseSubtitlesMulti
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
-      propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[15].m_MethodName
+      propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[13].m_MethodName
       value: SetLevelChangeHalt
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
+        type: 3}
+      propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[14].m_MethodName
+      value: TimedChangeLevel
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
+        type: 3}
+      propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[15].m_MethodName
+      value: TimedChangeLevel
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -809,12 +809,12 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[13].m_TargetAssemblyTypeName
-      value: SubtitleSystem, Assembly-CSharp
+      value: GameEvents, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[14].m_TargetAssemblyTypeName
-      value: SubtitleSystem, Assembly-CSharp
+      value: GameEvents, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -859,7 +859,7 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[9].m_Arguments.m_FloatArgument
-      value: 0.1
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -873,8 +873,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
+      propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[12].m_Arguments.m_FloatArgument
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
+        type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[13].m_Arguments.m_FloatArgument
-      value: 1
+      value: 28.6
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -884,7 +889,7 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[15].m_Arguments.m_FloatArgument
-      value: 31
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -907,7 +912,7 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_StringArgument
-      value: Time to take a piss.
+      value: I couldn't remember where I was, or who I was.
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -917,7 +922,8 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[6].m_Arguments.m_StringArgument
-      value: What the hell are you doing?
+      value: I couldn't walk on my own.<br><br>I couldn't eat on my own.<br><br>I
+        couldn't take care of myself on my own.
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -927,7 +933,7 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[8].m_Arguments.m_StringArgument
-      value: I'm taking a piss!
+      value: I lived in a constant state of limbo as this opaque fog clouded my brain.
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -937,8 +943,7 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[10].m_Arguments.m_StringArgument
-      value: Okay, but why aren't you jumping on me?<br><br>That's what you're supposed
-        to do.
+      value: Until one day, that fog started to clear.
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -948,7 +953,7 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[12].m_Arguments.m_StringArgument
-      value: I might do it f*cking later.
+      value: '"I might do it f*cking later."'
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
@@ -958,12 +963,12 @@ PrefabInstance:
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[14].m_Arguments.m_StringArgument
-      value: '"I might do it f*cking later."'
+      value: 1_Bedroom
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}
       propertyPath: introEvent.m_PersistentCalls.m_Calls.Array.data[15].m_Arguments.m_StringArgument
-      value: '"I might do it f*cking later."'
+      value: 1_Bedroom
       objectReference: {fileID: 0}
     - target: {fileID: 4547338170177728403, guid: 2b3c5e2e23b8d084681e356ebacdbb04,
         type: 3}

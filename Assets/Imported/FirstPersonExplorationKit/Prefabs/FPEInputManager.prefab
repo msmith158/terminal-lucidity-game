@@ -50,7 +50,7 @@ MonoBehaviour:
   lookSmoothing: 1
   useGamepad: 0
   gamepadBoostMultiplier: 2
-  lookSmoothFactor: 10
+  lookSmoothFactor: 50
   rightStickButtonThreshold: 0.9
   rightStickButtonRepeatTime: 0.2
   analogStickDeadzone: 0.1
