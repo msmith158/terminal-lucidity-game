@@ -1049,7 +1049,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Jenny. My wife.
+          m_StringArgument: '"In that moment, I realised."<br><br>"Jenny, my wife."'
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1514200221}
@@ -1073,7 +1073,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: So high.
+          m_StringArgument: '"My son, Nathan. His brother, Andrew."'
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1514200221}
@@ -1097,31 +1097,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Oh, oh, oh.
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1514200221}
-        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
-        m_MethodName: AddToWaitQueue
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: Oh, oh, oh.
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1514200221}
-        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
-        m_MethodName: AddToSubtitleQueue
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: Oh, oh, oh.
+          m_StringArgument: '"I remembered their names."'
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1514200221}
@@ -1134,6 +1110,78 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Oh, oh, oh.
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1514200221}
+        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
+        m_MethodName: AddToSubtitleQueue
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: '"That house, we lived in it. It''s ours."'
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1514200221}
+        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
+        m_MethodName: AddToWaitQueue
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Oh, oh, oh.
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1514200221}
+        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
+        m_MethodName: AddToSubtitleQueue
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 14
+          m_StringArgument: '"They must still live there."'
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1514200221}
+        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
+        m_MethodName: AddToSubtitleQueue
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: '"How long have I been in this place for?"'
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1514200221}
+        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
+        m_MethodName: AddToWaitQueue
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: How long have I been in this place for?
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1514200221}
+        m_TargetAssemblyTypeName: SubtitleSystem, Assembly-CSharp
+        m_MethodName: AddToWaitQueue
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: They must still live there.
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1514200221}
@@ -1168,7 +1216,7 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 14
+          m_FloatArgument: 20
           m_StringArgument: Oh, oh, oh.
           m_BoolArgument: 0
         m_CallState: 2

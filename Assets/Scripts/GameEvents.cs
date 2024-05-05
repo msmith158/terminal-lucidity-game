@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -28,6 +29,7 @@ public class GameEvents : MonoBehaviour
     Holder holder;
     float waitBeforeLevelChange;
     float waitBeforeFadeOut;
+    float waitUntilGameExit;
 
     // Start is called before the first frame update
     void Start()
@@ -134,6 +136,11 @@ public class GameEvents : MonoBehaviour
         waitBeforeLevelChange = waitTime;
     }
 
+    public void SetQuitHaltTime(float quitWait)
+    {
+        waitUntilGameExit = quitWait;
+    }
+
     public void InitialiseTransitionFadeOut(string sceneName)
     {
         StartCoroutine(TransitionFadeOut(sceneName));
@@ -147,6 +154,11 @@ public class GameEvents : MonoBehaviour
     public void TimedChangeLevel(string sceneName)
     {
         StartCoroutine(ChangeLevel(sceneName));
+    }
+
+    public void TimedQuit()
+    {
+        StartCoroutine(TimedGameQuit());
     }
 
     IEnumerator AltStart()
@@ -243,5 +255,19 @@ public class GameEvents : MonoBehaviour
 
         yield return new WaitForSeconds(haltAtEndTime);
         SceneManager.LoadScene(scene, LoadSceneMode.Single);
+    }
+
+    IEnumerator TimedGameQuit()
+    {
+        yield return new WaitForSeconds(waitUntilGameExit);
+#if UNITY_EDITOR
+        {
+            EditorApplication.isPlaying = false;
+        }
+        #else
+        {
+            Application.Quit();
+        }
+        #endif
     }
 }

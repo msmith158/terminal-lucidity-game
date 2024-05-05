@@ -7686,7 +7686,7 @@ MonoBehaviour:
   toggleOnInteractionString: Turn lamp ON
   toggleOffInteractionString: Turn lamp OFF
   toggleOnAtStart: 0
-  toggleOffAtStart: 0
+  toggleOffAtStart: 1
   fireToggleEventsOnLoadGame: 1
 --- !u!64 &84313612
 MeshCollider:
@@ -29337,7 +29337,7 @@ MonoBehaviour:
   OnExamineStartEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
         m_MethodName: set_text
         m_Mode: 5
@@ -29349,7 +29349,7 @@ MonoBehaviour:
           m_StringArgument: Is that me?
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -29361,11 +29361,23 @@ MonoBehaviour:
           m_StringArgument: Day in the life of a true brexit geezer
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 452988250}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Day in the life of a true brexit geezer
+          m_BoolArgument: 0
+        m_CallState: 2
   examineStartRepeatMode: 1
   OnExamineEndEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -29377,7 +29389,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
         m_MethodName: set_text
         m_Mode: 5
@@ -29388,6 +29400,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 452988250}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   examineEndRepeatMode: 1
 --- !u!82 &281648078
@@ -29837,18 +29861,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &300373458 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1702046143709914691, guid: ddbfc4406ff68314992ce949f2941004,
-    type: 3}
-  m_PrefabInstance: {fileID: 6567302232667013497}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &303775197
 GameObject:
   m_ObjectHideFlags: 0
@@ -37420,6 +37432,134 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2127319736}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &391260362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 391260363}
+  - component: {fileID: 391260364}
+  m_Layer: 0
+  m_Name: Lightswitch
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &391260363
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391260362}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.1012347, y: 0.96973526, z: -1.2557774}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 974970508}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &391260364
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391260362}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &399150618
 GameObject:
   m_ObjectHideFlags: 0
@@ -45920,7 +46060,19 @@ MonoBehaviour:
   OnExamineStartEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: She must be my wife.
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
         m_MethodName: set_text
         m_Mode: 5
@@ -45930,18 +46082,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: She must be my wife.
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 300373458}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Day in the life of a true brexit geezer
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 452988250}
@@ -45960,7 +46100,7 @@ MonoBehaviour:
   OnExamineEndEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -45972,7 +46112,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
         m_MethodName: set_text
         m_Mode: 5
@@ -48115,7 +48255,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
@@ -48160,7 +48300,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -56774,6 +56914,7 @@ Transform:
   - {fileID: 1066200386}
   - {fileID: 1182441083}
   - {fileID: 703612827}
+  - {fileID: 391260363}
   m_Father: {fileID: 1333320638}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &982727875 stripped
@@ -60764,7 +60905,7 @@ MonoBehaviour:
   OnExamineStartEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
         m_MethodName: set_text
         m_Mode: 5
@@ -60776,7 +60917,7 @@ MonoBehaviour:
           m_StringArgument: It's an old photo of a familiar house.
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -60788,11 +60929,23 @@ MonoBehaviour:
           m_StringArgument: Day in the life of a true brexit geezer
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 452988250}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Day in the life of a true brexit geezer
+          m_BoolArgument: 0
+        m_CallState: 2
   examineStartRepeatMode: 1
   OnExamineEndEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -60804,7 +60957,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
         m_MethodName: set_text
         m_Mode: 5
@@ -60815,6 +60968,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 452988250}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   examineEndRepeatMode: 1
 --- !u!82 &1112918636
@@ -62938,6 +63103,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 391260364}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: 96c085ccace2c4b4c9dbbd597305e80f,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
   ActivationFailureEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -62987,6 +63165,19 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 391260364}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: f4c58541fc45f4c4f93835a13a29dabc,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -97751,7 +97942,7 @@ MonoBehaviour:
   OnExamineStartEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
         m_MethodName: set_text
         m_Mode: 5
@@ -97763,7 +97954,7 @@ MonoBehaviour:
           m_StringArgument: This photo looks familiar.
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -97775,11 +97966,35 @@ MonoBehaviour:
           m_StringArgument: Day in the life of a true brexit geezer
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 452988248}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Day in the life of a true brexit geezer
+          m_BoolArgument: 0
+        m_CallState: 2
   examineStartRepeatMode: 1
   OnExamineEndEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
+        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
+        m_MethodName: set_text
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -97791,17 +98006,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 300373458}
-        m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: set_text
-        m_Mode: 5
+      - m_Target: {fileID: 452988248}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
   examineEndRepeatMode: 1
 --- !u!64 &1891758135
@@ -105321,7 +105536,7 @@ PrefabInstance:
     - target: {fileID: 1702046143709914691, guid: ddbfc4406ff68314992ce949f2941004,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1702046143709914691, guid: ddbfc4406ff68314992ce949f2941004,
         type: 3}
@@ -105353,6 +105568,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddbfc4406ff68314992ce949f2941004, type: 3}
+--- !u!114 &6567302232667013498 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1702046143709914691, guid: ddbfc4406ff68314992ce949f2941004,
+    type: 3}
+  m_PrefabInstance: {fileID: 6567302232667013497}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &6697621764326147229
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -105387,7 +105614,7 @@ MonoBehaviour:
   autoGeneratePutBackObject: 1
   examinationOffsetUp: 0
   examinationOffsetForward: 0
-  pickupRotationOffset: {x: 0, y: 0, z: 0}
+  pickupRotationOffset: {x: 0, y: 0, z: 90}
   tossStrength: 1
   tossOffsetUp: 0.1
   tossOffsetForward: 0.1
@@ -105407,7 +105634,7 @@ MonoBehaviour:
   OnExamineStartEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
         m_MethodName: set_text
         m_Mode: 5
@@ -105419,7 +105646,7 @@ MonoBehaviour:
           m_StringArgument: A sticky note of tasks.
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -105431,11 +105658,23 @@ MonoBehaviour:
           m_StringArgument: Day in the life of a true brexit geezer
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 452988250}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Day in the life of a true brexit geezer
+          m_BoolArgument: 0
+        m_CallState: 2
   examineStartRepeatMode: 1
   OnExamineEndEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
         m_Mode: 6
@@ -105447,7 +105686,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 300373458}
+      - m_Target: {fileID: 6567302232667013498}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
         m_MethodName: set_text
         m_Mode: 5
@@ -105458,6 +105697,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 452988250}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
   examineEndRepeatMode: 1
 --- !u!82 &6697621764326147231
